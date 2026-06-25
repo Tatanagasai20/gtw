@@ -1,0 +1,8 @@
+name: hello world
+on: workflow_dispatch
+jobs:
+  task1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: hello step
+        run: echo "hello to gha"
