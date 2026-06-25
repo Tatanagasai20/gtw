@@ -5,6 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: building stage
-        run: |
-          echo "from line 1"
-          echo "from line 2"
+        run: echo "Hello World"
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test stage
+        run: echo "testing stage"
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy stage
+        run: echo "deploying the app"
