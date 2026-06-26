@@ -1,0 +1,18 @@
+name: static website hosting
+on: push
+jobs:
+  deploy :
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6
+      - name: configure aws credientials
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+      - name: copy to s3 
+        run: aws s3 sync . s3://my-static-website-bucket/ \
+          --exclude "*" \
+          --include "index.html" 
