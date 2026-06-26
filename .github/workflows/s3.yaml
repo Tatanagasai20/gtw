@@ -1,14 +1,18 @@
 name: static website hosting
+
 on: push
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: checkout stage
+      - name: Checkout Stage
         uses: actions/checkout@v4
-      - name: configure aws credientials
+
+      - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v6
         with:
-          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
-          aws-secret-access-key-id: ${{secrets.AWS_SECRET_KEY_ID}}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
