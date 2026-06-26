@@ -1,11 +1,10 @@
-name: sample
-on:
-  push:
-    branches:
-      - main
+name: github actions workflow
+on: push
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  actions-demo:
+    runs-on: ubuntu-latest 
     steps:
-      - name: building stage
-        run: echo "Hello, ${{secrets.MY_PASSWORD}}"
+      - name: checkout stage
+        uses: actions/checkout@v4
+      - name: print index.html
+        run: cat index.html
