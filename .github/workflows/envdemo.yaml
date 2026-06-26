@@ -9,4 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: connecting to env
+        env:
+          TEST_ENV: " PROD "
         run: echo " welcome to $TEST_ENV "
